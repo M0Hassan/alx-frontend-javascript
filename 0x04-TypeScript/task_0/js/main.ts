@@ -1,6 +1,6 @@
 // Student Interface
 
-Interface Student {
+interface Student {
   firstName: string,
   lastName: string,
   age: number,
