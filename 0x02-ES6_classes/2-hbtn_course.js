@@ -12,43 +12,43 @@ Implement a getter and setter for each attribute.
 */
 
 export default class HolbertonCourse {
-    constructor(name, length, students) {
-        this._name = name;
-        this._length = length;
-        this._students = students;
-    }
+  constructor(name, length, students) {
+    this._name = name;
+    this._length = length;
+    this._students = students;
+  }
 
-    get name() {
-        return this._name;
-    }
+  get name() {
+    return this._name;
+  }
 
-    set name(newName) {
-        if (typeof newName !== "string") {
-            throw TypeError("Name must be a string");
-        }
-        this._name = newName;
+  set name(newName) {
+    if (typeof newName !== 'string') {
+      throw TypeError('Name must be a string');
     }
+    this._name = newName;
+  }
 
-    get length() {
-        return this._length; 
+  get length() {
+    return this._length;
+  }
+
+  set length(newLength) {
+    if (typeof newLength !== 'number') {
+      throw TypeError('Length must be a number');
     }
+    this._length = newLength;
+  }
 
-    set length(newLength) {
-        if (typeof newLength !== "number") {
-            throw TypeError("Length must be a number");
-        }
-        this._length = newLength;
+  get students() {
+    return this._students;
+  }
+
+  set students(newStudents) {
+    if (!Array.isArray(newStudents)
+            || this.students.every((student) => typeof student !== 'string')) {
+      throw TypeError('Students must be an array of strings');
     }
-
-    get students() {
-        return this._students;
-    }
-
-    set students(newStudents) {
-        if (!Array.isArray(newStudents) 
-            || this.students.every((student) => typeof student !== "string")) {
-                throw TypeError("Students must be an array of strings");
-            }
-            this._students = newStudents;  
-        }
+    this._students = newStudents;
+  }
 }
