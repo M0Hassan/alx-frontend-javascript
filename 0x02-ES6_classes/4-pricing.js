@@ -3,31 +3,34 @@ import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
-    this._amount = amount;
     this._currency = currency;
+    this._amount = amount;
+  }
+
+  // getter
+  get currency() {
+    return this._currency;
   }
 
   get amount() {
     return this._amount;
   }
 
-  set amount(newAmount) {
-    this._amount = newAmount;
+  // setter
+  set currency(Currency) {
+    this._currency = Currency;
   }
 
-  get currency() {
-    return this._currency;
-  }
-
-  set currency(newCurrency) {
-    this._currency = newCurrency;
+  set amount(Amount) {
+    this._amount = Amount;
   }
 
   displayFullPrice() {
-    return `${this._amount} ${this._currency.displayFullCurrency()})`;
+    return `${this._amount} ${this.currency.displayFullCurrency()}`;
   }
 
-  static convertPrice(amount, rate) {
-    return amount * rate;
+  // static that calculates amount multiplied by conversion rate
+  static convertPrice(amount, conversionRate) {
+    return amount * conversionRate;
   }
 }
